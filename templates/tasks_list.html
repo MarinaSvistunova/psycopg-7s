@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <div class="column is-6 is-offset-3">
+            <h1 class="title">
+                Tasks list
+            </h1>
+            <div class="box">
+                <a href="{{ url_for('tasks_list', id_group=id_group, complete=False) }}">Незавершенные</a> | <a href="{{ url_for('tasks_list', id_group=id_group, complete=True) }}">Завершенные</a>
+            </div>
+
+            {% for task in tasks %}
+                    <div class="card m-1">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                {{ task.title }}
+                            </p>
+                            <a class="card-header-icon card-toggle">
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </header>
+                        <div class="card-content is-hidden">
+                            <div class="content">
+                                {% if task.task_description|length %}
+                                    {{ task.task_description }}
+                                {% endif %}
+                                <p>Дата создания: {{ task.date_created }}</p>
+                                <p>Создал: {{ task.email_creator }}</p>
+                                <p>Для кого: {{ task.email }}</p>
+                                <p>Статус выполнения: {{ task.complete }}</p>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="{{ url_for('delete_task', id_group=id_group, id=task.id_task) }}" class="card-footer-item">Удалить</a>
+                            <a href="{{ url_for('edit_task', id_group=id_group, id=task.id_task) }}" class="card-footer-item">Редактировать</a>
+                            <a href="{{ url_for('complete_task', id_group=id_group, id=task.id_task) }}" class="card-footer-item">
+                                {% if task.complete %}
+                                    Не выполнено
+                                {% else %}
+                                    Выполнено
+                                {% endif %}
+                                </a>
+                        </footer>
+                    </div>
+                    <br>
+            {% endfor %}
+            {% include 'form_task.html' %} {% block form_task %}{% endblock %}
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+	let cardToggles = document.getElementsByClassName('card-toggle');
+	for (let i = 0; i < cardToggles.length; i++) {
+		cardToggles[i].addEventListener('click', e => {
+			e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
+		});
+	}
+});
+</script>
+{% endblock %}

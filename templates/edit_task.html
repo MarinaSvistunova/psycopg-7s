@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <div class="column is-6 is-offset-3">
+            <h1 class="title">
+                Edit task
+            </h1>
+            <div class="box">
+                <form method="POST" action="{{ url_for('edit_task', id_group=id_group, id=res.id_task) }}" class="p-4">
+                    {{ form.csrf_token }}
+                    <div class="field">
+                        <label class="label">Название</label>
+                        <div class="control">
+                        <input class="input" type="text" id="title" name="title" value="{{ res.title }}" placeholder="" required="" autofocus="" />
+                        </div>
+                    </div>
+            
+                    <div class="field">
+                        <label class="label">Описание</label>
+                        <input class="textarea" type="text" id="task_description" name="task_description" value="{{ res.task_description }}" placeholder=""/>
+                    </div>
+            
+                    <div class="field">
+                        <div class="control">
+                            <label class="label">Создал</label>
+                            <div class="select is-info">
+                                <select name="created_by_id">
+                                    {% for user in users %}
+                                        {% if user[0] == res.created_by_id %}
+                                            <option selected="selected">{{ user[1] }}</option>
+                                        {% else %}
+                                            <option>{{ user[1] }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <div class="control">
+                            <label class="label">Для кого</label>
+                            <div class="select is-info">
+                                <select name="assigned_to_id">
+                                    {% for user in users %}
+                                        {% if user[0] == assigned_to_id %}
+                                            <option selected="selected">{{ user[1] }}</option>
+                                        {% else %}
+                                            <option>{{ user[1] }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="control">
+                        <a href="{{ url_for('edit_task', id_group=id_group, id=res.id_task) }}">
+                            <button class="button is-link">Изменить задачу</button>
+                        </a>
+                    </div>   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% block form_group %}
+<div class="box">
+    <form method="POST" action="{{ url_for('groups_list') }}" class="p-4">
+        {{ form.csrf_token }}
+        <div class="field">
+            <label class="label">Название</label>
+            <div class="control">
+              <input class="input" type="text" id="title" name="title" placeholder="" required="" autofocus="" />
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Описание</label>
+              <input class="textarea" type="text" id="group_description" name="group_description" placeholder=""/>
+          </div>
+          <div class="control">
+              <a href="{{ url_for('groups_list') }}">
+                <button class="button is-link">Создать группу</button>
+              </a>
+        </div>   
+    </form>
+</div>
+{% endblock %}

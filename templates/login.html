@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="signin-wrapper card card--shadow">
+    <p class="has-text-centered is-size-2">Login</p>
+    <form action="">
+      
+      <div class="field">
+        <label class="label">Email Address</label>
+        <div class="control">
+          <input class="input" type="text" id="email" placeholder="i.ivanov@gmail.com" placeholder="" required="" autofocus="" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input" type="text" id="psw" placeholder="*******" placeholder="" required="" />
+        </div>
+      </div>
+
+      <div class="control">
+          <button class="button is-link">Submit</button>
+      </div>   
+    </form>     
+      
+    <br>
+    <div class="is-grouped has-text-centered">
+        <h4 class="title is-5">New user?</h4>
+        <button class="button is-danger" id="createAccount" href="#">Create a Free Account</button>
+    </div>
+</div>
+</div>
+{% endblock %}

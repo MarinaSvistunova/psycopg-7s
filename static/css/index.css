@@ -1,0 +1,91 @@
+.flash {
+    padding: 10px;
+}
+  
+.flash.success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+  
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+
+@import url(//db.onlinewebfonts.com/c/a7e3822358f6dcb2f986a68cf24721b2?family=MV+Boli);
+
+body {
+    background-color: #fff;
+}
+
+@font-face {
+    font-family: "MV Boli"; src: url("//db.onlinewebfonts.com/t/a7e3822358f6dcb2f986a68cf24721b2.eot");
+    src: url("//db.onlinewebfonts.com/t/a7e3822358f6dcb2f986a68cf24721b2.eot?#iefix") format("embedded-opentype"),
+         url("//db.onlinewebfonts.com/t/a7e3822358f6dcb2f986a68cf24721b2.woff2") format("woff2"),
+         url("//db.onlinewebfonts.com/t/a7e3822358f6dcb2f986a68cf24721b2.woff") format("woff"),
+         url("//db.onlinewebfonts.com/t/a7e3822358f6dcb2f986a68cf24721b2.ttf") format("truetype"),
+         url("//db.onlinewebfonts.com/t/a7e3822358f6dcb2f986a68cf24721b2.svg#MV Boli") format("svg");
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/* login   */
+.btn--secondary {
+    background:transparent;
+    color:#127CC2;
+    border:1px solid #127CC2;
+}
+  
+.btn--secondary:hover {
+    -webkit-filter:brightness(80%);
+    filter:brightness(80%);
+    color:#127CC2;
+}
+  
+.alert--danger {
+    color:#fff;
+    background-color: #F14A4A;
+    border:none;
+}
+  
+  
+.card.signin-wrapper {
+    margin:80px auto;
+    max-width: 420px;
+    padding: 15px 35px 45px;
+}
+  
+.form-signin {
+    margin: 0 auto;
+}
+
+.form-signin label.checkbox {
+    margin-bottom: 1em;
+}
+
+.form-signin label.checkbox {
+    font-weight: normal;
+    padding-left:20px;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"], .form-signin input[type="password"] {
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+}
+  
+.form-signin button[type="submit"] {
+    margin-bottom: 0.5em;
+}
